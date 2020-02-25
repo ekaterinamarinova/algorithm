@@ -1,9 +1,12 @@
 package algorithm;
 
 import java.util.*;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class RandomElement {
+
+    public static final Logger LOGGER = Logger.getLogger(RandomElement.class.getName());
 
     /**
      * Returns a {@link Set <T>} containing a {@code numberOfElements}
@@ -20,7 +23,7 @@ public class RandomElement {
         Set<T> typeSet = new HashSet<>(returnList);
 
         if (numberOfElements > typeSet.size()) {
-            System.out.println("You are trying to fetch way too many unique elements. " +
+            LOGGER.warning("You are trying to fetch way too many unique elements. " +
                     "Only the maximum amount of unique elements will be returned.");
         }
 
