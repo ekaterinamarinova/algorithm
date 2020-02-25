@@ -1,5 +1,7 @@
 package algorithm;
 
+import java.util.Arrays;
+
 /**
  * @author Ekaterina Marinova
  */
@@ -21,9 +23,8 @@ public class BubbleSort {
         int size = ints.length;
         int[] temp;
 
-        if (size <= 1) {
-            throw new Exception("Array cannot be sorted because it " +
-                    "either contains only 1 or does not contain any elements.");
+        if (size < 1) {
+            throw new Exception("Array cannot be sorted because it does not contain any elements");
         }
 
         /*
@@ -31,20 +32,20 @@ public class BubbleSort {
             superior index number whose value is
             smaller than its predecessor's value
         */
-        while(isAnyIndexUnordered(ints)) {
 
+        do {
             //for each element of the given array
             for (int i = 0; i < size; i++) {
 
                 //if the next value is smaller than the previous one,
                 //swap the values
                 if (size > (i + 1) && ints[i + 1] < ints[i]) {
-                    temp = ints.clone();
+                    temp = Arrays.copyOf(ints, size);
                     ints[i] = temp[i + 1];
                     ints[i + 1] = temp[i];
                 }
             }
-        }
+        } while(isAnyIndexUnordered(ints));
 
         return ints;
     }

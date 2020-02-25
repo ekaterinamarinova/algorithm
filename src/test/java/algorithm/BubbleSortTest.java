@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  */
 public class BubbleSortTest {
 
-    private static final String MESSAGE = "Array cannot be sorted because it " +
-            "either contains only 1 or does not contain any elements.";
+    private static final String MESSAGE = "Array cannot be sorted because it does not contain any elements";
 
     private int[] arr;
     private int[] expected;
