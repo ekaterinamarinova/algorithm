@@ -22,14 +22,6 @@ public class HackerRank {
      * @param s - string representing Gary's path.
      */
     public int countGarrysValleys(String s) {
-        //_/\      _
-        //   \    /
-        //    \/\/
-        //U DDD U D UU
-        //we always start at sea level
-        //if str is U - ++seaLevel
-        //if str is D - --seaLevel
-        //1 valley/mountain is when seaLevel is 0 again
         int seaLevel = 0;
         int valleyCount = 0;
         String[] eachStep = s.toLowerCase().split("");
