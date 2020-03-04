@@ -56,7 +56,7 @@ public class HackerRank {
      * @return - minimum number of steps required to finish the trace
      */
     public static int countEmmasEasiestPath(int[] c) {
-        byte steps = 0;
+        int steps = 0;
         int twoSteps;
 
         for (int i = 0; i < c.length - 1; i++) {
