@@ -20,6 +20,7 @@ public class HackerRank {
      * he has entered and walked out of.
      *
      * @param s - string representing Gary's path.
+     * @return - how many valleys had Garry passed
      */
     public int countGarrysValleys(String s) {
         int seaLevel = 0;
@@ -50,6 +51,9 @@ public class HackerRank {
      * position to the last cloud. It is always possible to win the game.
      *
      * For each game, Emma will get an array of clouds numbered 0 if they are safe or 1 if they must be avoided.
+     *
+     * @param c - array, containing the 'clouds' in order
+     * @return - minimum number of steps required to finish the trace
      */
     public static int countEmmasEasiestPath(int[] c) {
         byte steps = 0;
@@ -90,6 +94,13 @@ public class HackerRank {
                 .length;
     }
 
+    /**
+     * Same as above, but with streams
+     *
+     * @param s - starting string
+     * @param n - get the first {@code n} characters
+     * @return  - how many times does 'a' occur in the given substring
+     */
     public static int repeatedStringWithStream(String s, int n) {
         String[] chars = new String(new char[n])
                 .replace("\0", s)
