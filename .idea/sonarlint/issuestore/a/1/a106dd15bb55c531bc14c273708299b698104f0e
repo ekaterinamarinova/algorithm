@@ -1,0 +1,13 @@
+
+F
+java:S1481")Remove this unused "node" local variable.(Áğ™›8†´Ùú‹.
+>
+java:S1068	")Remove this unused "value" private field.(ÉŠH
+G
+java:S1481"*Remove this unused "inner" local variable.(ùêÿÄ8ØÀÕú‹.
+>
+java:S1068
+"(Remove this unused "next" private field.(Õ¬·
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(×–¢¹
+_
+java:S2094"BRemove this empty class, write its code or make it an "interface".(‡ë¬¶8û¿Òú‹.

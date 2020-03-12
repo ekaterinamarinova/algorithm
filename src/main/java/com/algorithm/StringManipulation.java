@@ -1,5 +1,6 @@
-package algorithm;
+package com.algorithm;
 
+import java.util.Map;
 import java.util.TreeMap;
 
 public class StringManipulation {
@@ -8,14 +9,14 @@ public class StringManipulation {
 
     /**
      * A method that counts the words in a given message string.
-     * The algorithm saves each word and how many times it has
+     * The com.algorithm saves each word and how many times it has
      * occurred in the current string.
      *
      * @param message - working string
      * @return - a {@link TreeMap} containing the word itself as a {@link String} key
      * and how many times it has been repeated as an {@link Integer} value
      */
-    public TreeMap<String, Integer> countWords(String message) {
+    public Map<String, Integer> countWords(String message) {
         TreeMap<String, Integer> differentWords = new TreeMap<>();
 
         String[] words = message.toLowerCase()

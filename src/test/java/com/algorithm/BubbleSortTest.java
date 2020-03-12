@@ -1,4 +1,4 @@
-package algorithm;
+package com.algorithm;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
