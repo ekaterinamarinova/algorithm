@@ -133,4 +133,37 @@ public class HackerRank {
         return a;
     }
 
+    /**
+     * Given a 2D array, sum the hourglass with the
+     * highest score. A hourglass is considered the
+     * following part of the array: a b c
+     *                                d
+     *                              e f g
+     * For example, given the array 1 1 1 0 0 0
+     *                              0 1 0 0 0 0
+     *                              1 1 1 0 0 0
+     *                              0 0 0 0 0 0
+     * the highest hourglass score is 7.
+     * @param arr - the 2D array
+     * @return - the highest score
+     */
+    static int hourglassSum(int[][] arr) {
+        int maxXY = 3;
+        int total = -64;
+        int sum = 0;
+
+        for (int x = 0; x < maxXY; x++) {
+            for (int y = 0; y < maxXY; y++) {
+                sum = arr[x][y] + arr[x][y + 1] + arr[x][y + 2];
+                sum += arr[x+1][y+1];
+                sum += arr[x+2][y] + arr[x+2][y+1] + arr[x+2][y+2];
+            }
+        }
+
+        if (total < sum)
+            total = sum;
+
+        return total;
+    }
+
 }
