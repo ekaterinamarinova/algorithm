@@ -112,4 +112,25 @@ public class HackerRank {
 
     }
 
+    /**
+     * Left rotation on an array.
+     *
+     * @param a - an array of integers
+     * @param d - number of left rotations
+     * @return - {@code a}, but rotated
+     */
+    static int[] rotLeft(int[] a, int d) {
+        int temp;
+        for (int i = 0; i < d; i++) {
+            for (int j = a.length - 1; j > 0; j--) {
+                temp = a[j];
+                a[j] = a[j - 1];
+                a[j - 1] = temp;
+            }
+        }
+
+        System.out.println(Arrays.toString(a));
+        return a;
+    }
+
 }
