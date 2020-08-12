@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Solutions from HackerRank problems are contained here
  */
-public class HackerRank {
+public class HackerRankInterviewPrepGuide {
 
     /**
      * As Gary is hiking, he enters sequences of mountains and valleys.
@@ -165,7 +165,6 @@ public class HackerRank {
 
         return total;
     }
-    
 
 
 }
