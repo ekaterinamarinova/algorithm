@@ -4,27 +4,13 @@ import java.util.*;
 
 public class HackerRankStatisticsChallenge {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        List<Double> elements = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) {
-            elements.add(i, scanner.nextDouble());
-        }
-
-        List<Number> resultList = meanMedianMode(n, elements);
-        for (Number number : resultList) {
-            System.out.println(number);
-        }
-    }
-
     /**
      * Find the Mean, Median and Mode of a given list of numbers
      * @param n - number of elements in list
      * @param elements - list of numbers
      * @return - a list, containing the Mean, Median and Mode of the {@code elements}
      */
-    static List<Number> meanMedianMode(int n, List<Double> elements) {
+    public List<Number> meanMedianMode(int n, List<Double> elements) {
         List<Number> resultList = new ArrayList<>(3);
         List<Double> maxModes = new ArrayList<>(n);
         Map<Double, Integer> modes = new HashMap<>(elements.size());

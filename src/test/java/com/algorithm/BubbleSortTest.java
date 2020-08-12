@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author Ekaterina MArinova
+ * @author Ekaterina Marinova
  */
 public class BubbleSortTest {
 
@@ -41,9 +41,7 @@ public class BubbleSortTest {
         //act
         Exception e = Assertions.assertThrows(
                 Exception.class,
-                () -> {
-                    bubbleSort.sortAscending(arr);
-                }
+                () -> bubbleSort.sortAscending(arr)
         );
 
         //assert
