@@ -1,6 +1,6 @@
 package com.algorithm;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * Solutions from HackerRank problems are contained here
@@ -165,5 +165,7 @@ public class HackerRank {
 
         return total;
     }
+    
+
 
 }
