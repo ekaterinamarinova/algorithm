@@ -56,22 +56,6 @@ public class HackerRankStatisticsChallenge {
         return resultList;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        List<Integer> x = new ArrayList<>(n);
-        List<Integer> w = new ArrayList<>(n);
-        for (int i = 0; i < n*2; i++) {
-            if (i <= n-1) {
-                x.add(scanner.nextInt());
-            } else {
-                w.add(scanner.nextInt());
-            }
-        }
-
-        System.out.println(weighedMean(n, x, w));
-    }
-
     public static Float weighedMean(int n, List<Integer> x, List<Integer> w) {
         float sumOfXW = 0.0f;
         float sumOfW = 0.0f;
@@ -81,5 +65,29 @@ public class HackerRankStatisticsChallenge {
             sumOfXW += x.get(i) * w.get(i);
         }
         return Float.parseFloat(String.format("%.1f", sumOfXW/sumOfW));
+    }
+
+    /**
+     * Find the standard deviation based on a given number array.
+     *
+     * @param n - number of elements in the array
+     * @param x - array with numbers
+     * @return - the standard deviation in a
+     * {@<code>Double</code>} type, with a 0.0 precision
+     */
+    public static Double standardDEViation(int n, List<Integer> x) {
+        double mean = 0.0d;
+        double squaredDistance = 0.0d;
+
+        for (int i = 0; i < n; i++) {
+            mean += x.get(i);
+        }
+        mean /= x.size();
+
+        for (int i = 0; i < n; i++) {
+            squaredDistance += Math.pow(x.get(i) - mean, 2);
+        }
+
+        return Double.parseDouble(String.format("%.1f", Math.sqrt(squaredDistance/n)));
     }
 }
