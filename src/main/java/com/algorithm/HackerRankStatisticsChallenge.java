@@ -55,4 +55,31 @@ public class HackerRankStatisticsChallenge {
 
         return resultList;
     }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        List<Integer> x = new ArrayList<>(n);
+        List<Integer> w = new ArrayList<>(n);
+        for (int i = 0; i < n*2; i++) {
+            if (i <= n-1) {
+                x.add(scanner.nextInt());
+            } else {
+                w.add(scanner.nextInt());
+            }
+        }
+
+        System.out.println(weighedMean(n, x, w));
+    }
+
+    public static Float weighedMean(int n, List<Integer> x, List<Integer> w) {
+        float sumOfXW = 0.0f;
+        float sumOfW = 0.0f;
+
+        for (int i = 0; i < n; i++) {
+            sumOfW += w.get(i);
+            sumOfXW += x.get(i) * w.get(i);
+        }
+        return Float.parseFloat(String.format("%.1f", sumOfXW/sumOfW));
+    }
 }
