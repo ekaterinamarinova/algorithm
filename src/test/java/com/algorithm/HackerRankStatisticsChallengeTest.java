@@ -22,7 +22,6 @@ public class HackerRankStatisticsChallengeTest {
     @Test
     public void testMeanMedianMode() {
         int n = 6;
-        Random random = new Random();
         List<Double> elements = new ArrayList<>(n);
         elements.addAll(Arrays.asList(1.0,2.0,3.0,4.0,5.0,6.0));
         List<Number> result = challenge.meanMedianMode(n, elements);

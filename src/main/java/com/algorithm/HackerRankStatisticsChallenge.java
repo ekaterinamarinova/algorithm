@@ -90,4 +90,52 @@ public class HackerRankStatisticsChallenge {
 
         return Double.parseDouble(String.format("%.1f", Math.sqrt(squaredDistance/n)));
     }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        List<Double> x = new ArrayList<>(n);
+
+        for (int i = 0; i < n; i++) {
+            x.add(scanner.nextDouble());
+        }
+
+        List<Number> quartiles = findQuartiles(n, x);
+        for (Number number : quartiles) {
+            System.out.println(number);
+        }
+    }
+
+    /**
+     * Finds and returns the quartiles in a set of numbers.
+     *
+     * @param n
+     * @param x
+     * @return
+     */
+    public static List<Number> findQuartiles(int n, List<Double> x) {
+        List<Number> quartiles = new ArrayList<>(3);
+
+        quartiles.add(returnMedian(x.subList(0, x.size()/2)));
+        quartiles.add(returnMedian(x));
+        quartiles.add(returnMedian(x.subList((x.size()/2), x.size())));
+
+        return quartiles;
+    }
+
+    /**
+     * Helper method that returns the median of a given array
+     *
+     * @param x
+     * @return
+     */
+    public static double returnMedian(List<Double> x) {
+        Collections.sort(x);
+
+        if (x.size() % 2 == 0) {
+            return  ( x.get(x.size() / 2) + x.get((x.size() /2) - 1) ) / 2;
+        } else {
+            return x.get(x.size() / 2);
+        }
+    }
 }
