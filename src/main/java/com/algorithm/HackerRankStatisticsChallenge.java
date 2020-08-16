@@ -6,7 +6,8 @@ public class HackerRankStatisticsChallenge {
 
     /**
      * Find the Mean, Median and Mode of a given list of numbers
-     * @param n - number of elements in list
+     *
+     * @param n        - number of elements in list
      * @param elements - list of numbers
      * @return - a list, containing the Mean, Median and Mode of the {@code elements}
      */
@@ -49,7 +50,7 @@ public class HackerRankStatisticsChallenge {
             mode = Collections.max(maxModes).intValue();
         }
 
-        resultList.add(Double.parseDouble(String.format("%.1f", mean/n)));
+        resultList.add(Double.parseDouble(String.format("%.1f", mean / n)));
         resultList.add(Double.parseDouble(String.format("%.1f", median)));
         resultList.add(mode);
 
@@ -64,7 +65,7 @@ public class HackerRankStatisticsChallenge {
             sumOfW += w.get(i);
             sumOfXW += x.get(i) * w.get(i);
         }
-        return Float.parseFloat(String.format("%.1f", sumOfXW/sumOfW));
+        return Float.parseFloat(String.format("%.1f", sumOfXW / sumOfW));
     }
 
     /**
@@ -88,37 +89,27 @@ public class HackerRankStatisticsChallenge {
             squaredDistance += Math.pow(x.get(i) - mean, 2);
         }
 
-        return Double.parseDouble(String.format("%.1f", Math.sqrt(squaredDistance/n)));
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        List<Double> x = new ArrayList<>(n);
-
-        for (int i = 0; i < n; i++) {
-            x.add(scanner.nextDouble());
-        }
-
-        List<Number> quartiles = findQuartiles(n, x);
-        for (Number number : quartiles) {
-            System.out.println(number);
-        }
+        return Double.parseDouble(String.format("%.1f", Math.sqrt(squaredDistance / n)));
     }
 
     /**
      * Finds and returns the quartiles in a set of numbers.
      *
-     * @param n
-     * @param x
-     * @return
+     * @param x - the collection of integers
+     * @return - a collection of three integers, representing
+     * the three quartiles
      */
-    public static List<Number> findQuartiles(int n, List<Double> x) {
-        List<Number> quartiles = new ArrayList<>(3);
+    public static List<Integer> findQuartiles(List<Integer> x) {
+        List<Integer> quartiles = new ArrayList<>(3);
+        Collections.sort(x);
 
-        quartiles.add(returnMedian(x.subList(0, x.size()/2)));
-        quartiles.add(returnMedian(x));
-        quartiles.add(returnMedian(x.subList((x.size()/2), x.size())));
+        int second = returnMedianRemoveIfOdd(x);
+        int first = returnMedianRemoveIfOdd(x.subList(0, x.size() / 2));
+        int third = returnMedianRemoveIfOdd(x.subList((x.size() / 2), x.size()));
+
+        quartiles.add(first);
+        quartiles.add(second);
+        quartiles.add(third);
 
         return quartiles;
     }
@@ -126,16 +117,19 @@ public class HackerRankStatisticsChallenge {
     /**
      * Helper method that returns the median of a given array
      *
-     * @param x
-     * @return
+     * @param x - collection of integers to be operated on
+     * @return - integer value of the median;
+     * removes it if numbers are odd;
      */
-    public static double returnMedian(List<Double> x) {
-        Collections.sort(x);
+    public static int returnMedianRemoveIfOdd(List<Integer> x) {
+        int midIndex = x.size() / 2;
 
         if (x.size() % 2 == 0) {
-            return  ( x.get(x.size() / 2) + x.get((x.size() /2) - 1) ) / 2;
+            return (x.get(midIndex) + x.get(midIndex - 1)) / 2;
         } else {
-            return x.get(x.size() / 2);
+            int median = x.get(midIndex);
+            x.remove(midIndex);
+            return median;
         }
     }
 }
